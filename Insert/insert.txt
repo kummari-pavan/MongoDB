@@ -1,0 +1,40 @@
+MongoDB mongosh Insert
+----------------------
+Insert Documents
+There are 2 methods to insert documents into a MongoDB database.
+
+insertOne():
+----------
+To insert a single document, use the insertOne() method.
+This method inserts a single object into the database.
+
+db.Trainee.insertOne({name:"PAVAN",ID:"BLZ185",Company:"Wipro"})
+
+
+insertMany():
+------------
+To insert multiple documents at once, use the insertMany() method.
+
+This method inserts an array of objects into the database.
+
+PServer> db.Trinee.insertMany([
+    {name:"Vijaya",ID:"BLZ181",Company:"Wipro"},
+    {name:"Preetham",ID:"BLZ182",Company:"Wipro"},
+    {name:"Santhosh",ID:"BLZ183",Company:"Wipro"},
+    {name:"Anjali",ID:"BLZ184",Company:"Wipro"}])
+
+Example
+---------
+db.collection_name.insertOne({
+    name: "John",
+    age: 30,
+    address: "New York"
+})
+
+Example
+---------
+db.collection_name.insertMany([
+    { name: "John", age: 30, address: "New York" },
+    { name: "Jane", age: 25, address: "Los Angeles" }
+    { name: "Pavan", age: 25, address: "Los Angeles" }
+])

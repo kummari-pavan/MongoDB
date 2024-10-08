@@ -1,5 +1,5 @@
 use ("Pserver")
-
+//Comparison
 db.Trainee.find({ age: { $eq: 22 } })
 db.Trainee.find({ Company: { $ne: "Wipro" } })
 db.Trainee.find({ age: { $gt: 30 } })

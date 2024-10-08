@@ -1,0 +1,39 @@
+Find
+-----
+The find() method is used to retrieve documents from a collection.
+
+There are 2 methods to find and select data from a MongoDB collection, find() and findOne().
+
+find():
+-------
+To select data from a collection in MongoDB, we can use the find() method.
+This method accepts a query object. If left empty, all documents will be returned.
+
+Find All Documents:
+
+>>> db.collection_name.find()
+
+Find with a Query:
+------------------
+Example: Find all documents where age is greater than 25:
+
+>>> db.collection_name.find({ age: { $gt: 25 } }) 
+
+Find with Specific Fields:
+--------------------------
+Example: Find only the name and age fields:
+
+>>> db.collection_name.find({}, { name: 1, age: 1, _id: 0 })
+
+Projection
+-----------
+Both find methods accept a second parameter called projection.
+
+This parameter is an object that describes which fields to include in the results.
+
+Note: This parameter is optional. If omitted, all fields will be included in the results.
+
+Example
+
+This example will only display the title and date fields in the results.
+>>> db.posts.find({}, {title: 1, date: 1})

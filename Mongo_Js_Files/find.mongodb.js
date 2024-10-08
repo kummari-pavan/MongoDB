@@ -1,0 +1,10 @@
+use ("PServer")
+
+db.Trainee.find() 
+db.Trainee.find({name:"Pavan"})
+db.Trainee.find({name:"PAVAN"})
+db.Trainee.find({age:{$gt:21}})
+db.Trainee.find({skills:"JavaScript"})
+db.Trainee.find({"Rating.MongoDB":5})
+db.Trainee.find({Company:"Wipro",ID:{$regex:"^BLZ18"}})
+db.Trainee.find({Backlogs:null})

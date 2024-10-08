@@ -8,10 +8,8 @@ db.Trainee.insertOne({
     skills: ["JavaScript", "MongoDB"],
     joinedDate: new Date(),
     Ratindg:{JavaScript:5,MongoDB:5}
-<<<<<<< HEAD
+
 }) 
 
 db
-=======
-})
->>>>>>> DataTypes
+

@@ -1,0 +1,50 @@
+Limit Operations:
+--------------------
+Limit to 2 Results
+------------------
+db.collectionName.find({}).limit(2)
+Returns only the first 2 documents from the collection.
+
+Limit to 5 Results
+------------------
+db.collectionName.find({}).limit(5)
+Limits the result to 5 documents.
+
+Limit to 1 Result
+-----------------
+db.collectionName.find({}).limit(1)
+Returns just the first document.
+
+Limit to 3 Results After Filtering by Company
+---------------------------------------------
+db.collectionName.find({ Company: "Wipro" }).limit(3)
+Returns only the first 3 documents where the company is "Wipro."
+
+Limit to 7 Results
+------------------
+db.collectionName.find({}).limit(7)
+Limits the result to 7 documents.
+
+Limit to 10 Results
+--------------------
+db.collectionName.find({}).limit(10)
+Returns the first 10 documents.
+
+Limit to 4 Results After Filtering by Age
+------------------------------------------
+db.collectionName.find({ age: { $gte: 20 } }).limit(4)
+Limits the result to 4 documents where age is 20 or greater.
+
+Limit to 6 Results After Filtering by Skills
+--------------------------------------------
+db.collectionName.find({ skills: "MongoDB" }).limit(6)
+Limits the result to 6 documents where skills include "MongoDB."
+
+Limit to 2 Results After Filtering by Employment
+------------------------------------------------
+db.collectionName.find({ isEmployed: true }).limit(2)
+Limits the result to 2 employed people.
+
+Limit to 8 Results
+------------------
+db.collectionName.find({}).limit(8)

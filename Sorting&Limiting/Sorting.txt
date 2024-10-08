@@ -1,0 +1,52 @@
+Sorting and limiting allow you to control how query results are displayed.
+
+Sort Operation
+---------------
+Sort by Name (Ascending)
+-------------------------
+db.collectionName.find({}).sort({ name: 1 })
+//Sorts documents by name alphabetically (A-Z).
+
+Sort by Age (Descending)
+-------------------------
+db.collectionName.find({}).sort({ age: -1 })
+Sorts documents by age from highest to lowest.
+
+Sort by Company (Ascending)
+---------------------------
+db.collectionName.find({}).sort({ Company: 1 })
+Sorts documents by Company alphabetically.
+
+Sort by Skills (Descending)
+---------------------------
+db.collectionName.find({}).sort({ skills: -1 })
+Sorts by the skills array in descending order.
+
+Sort by Joined Date (Ascending)
+-------------------------------
+db.collectionName.find({}).sort({ joinedDate: 1 })
+Sorts by the joinedDate field from oldest to newest.
+
+Sort by Employment Status (Ascending)
+--------------------------------------
+db.collectionName.find({}).sort({ isEmployed: 1 })
+Sorts by isEmployed field, false first, true later
+.
+Sort by Backlogs (Descending)
+-----------------------------
+db.collectionName.find({}).sort({ Backlogs: -1 })
+Sorts by Backlogs in descending order (null or highest).
+
+Sort by Rating for JavaScript (Ascending)
+-----------------------------------------
+db.collectionName.find({}).sort({ "Ratindg.JavaScript": 1 })
+Sorts by JavaScript rating in ascending order.
+
+Sort by Name and Age (Name Ascending, Age Descending)
+-----------------------------------------------------
+db.collectionName.find({}).sort({ name: 1, age: -1 })
+Sorts first by name, and then by age (for names that match).
+
+Sort by ID (Descending)
+-------------------------
+db.collectionName.find({}).sort({ ID: -1 })

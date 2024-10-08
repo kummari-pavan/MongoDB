@@ -1,0 +1,51 @@
+Combined Sort and Limit Operations
+
+Sort by Age (Ascending) and Limit to 5 Results
+----------------------------------------------
+db.collectionName.find({}).sort({ age: 1 }).limit(5)
+Sorts by age in ascending order and limits the output to 5 documents.
+
+Sort by Name (Descending) and Limit to 3 Results
+-------------------------------------------------
+db.collectionName.find({}).sort({ name: -1 }).limit(3)
+Sorts by name in descending order and limits the output to 3 documents.
+
+Sort by Joined Date (Descending) and Limit to 2 Results
+-------------------------------------------------------
+db.collectionName.find({}).sort({ joinedDate: -1 }).limit(2)
+Sorts by joinedDate in descending order and limits the result to the 2 most recent documents.
+
+Sort by Company (Ascending) and Limit to 4 Results
+--------------------------------------------------
+db.collectionName.find({}).sort({ Company: 1 }).limit(4)
+Sorts by Company and limits the output to 4 documents.
+
+Sort by ID (Ascending) and Limit to 5 Results
+---------------------------------------------
+db.collectionName.find({}).sort({ ID: 1 }).limit(5)
+Sorts by ID in ascending order and limits the result to 5 documents.
+
+Sort by Skills (Descending) and Limit to 3 Results
+-------------------------------------------------
+db.collectionName.find({}).sort({ skills: -1 }).limit(3)
+Sorts by skills and limits the result to 3 documents.
+
+Sort by Name (Ascending), Age (Descending), and Limit to 2 Results
+-------------------------------------------------------------------
+db.collectionName.find({}).sort({ name: 1, age: -1 }).limit(2)
+Sorts by name and age, then limits the result to 2 documents.
+
+Sort by Employment Status (Ascending) and Limit to 6 Results
+------------------------------------------------------------
+db.collectionName.find({}).sort({ isEmployed: 1 }).limit(6)
+Sorts by employment status and limits to 6 results.
+
+Sort by Backlogs (Descending) and Limit to 3 Results
+----------------------------------------------------
+db.collectionName.find({}).sort({ Backlogs: -1 }).limit(3)
+Sorts by Backlogs and limits to 3 documents.
+
+Sort by JavaScript Rating (Descending) and Limit to 5 Results
+-------------------------------------------------------------
+db.collectionName.find({}).sort({ "Ratindg.JavaScript": -1 }).limit(5)
+Sorts by JavaScript rating in descending order and limits to 5 documents.

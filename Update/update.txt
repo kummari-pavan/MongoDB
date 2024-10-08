@@ -1,0 +1,77 @@
+Update Document
+---------------
+To update an existing document we can use the updateOne() or updateMany() methods.
+
+The first parameter is a query object to define which document or documents should be updated.
+
+The second parameter is an object defining the updated data.
+
+Update One Document:
+-------------------
+db.collection_name.updateOne(
+    { name: "Pavan" },  // filter
+    { $set: { age: 31 } }  // update
+)
+
+db.Trainee.updateOne(
+    {name:"vijaya"}
+    {"$set:{age:20}}
+)
+
+Update Multiple Documents:
+--------------------------
+db.collection_name.updateMany(
+    { age: { $gt: 25 } },  // filter
+    { $set: { isActive: true } }  // update
+)
+
+updateMany()
+------------
+The updateMany() method will update all documents that match the provided query.
+
+1. Update the Company Name for All Employees
+
+db.collectionName.updateMany(
+   { Company: "Wipro" },     // Query to match all documents where Company is "Wipro"
+   { $set: { Company: "TCS" } }  // Set the Company field to "TCS"
+)
+This will update all documents where the Company is "Wipro" and change it to "TCS."
+___________________________________________________________________________________
+2. Increase Age by 1 for All Employees
+
+db.collectionName.updateMany(
+   { isEmployed: true },    // Query to match all employed employees
+   { $inc: { age: 1 } }     // Increment the age field by 1
+)
+This updates all documents where isEmployed is true and increases the age by 1.
+___________________________________________________________________________________
+3. Add a New Skill to All Employees with JavaScript in Skills
+db.collectionName.updateMany(
+   { skills: "JavaScript" },    // Query to match documents where skills array contains "JavaScript"
+   { $push: { skills: "Node.js" } }  // Add "Node.js" to the skills array
+)
+This adds "Node.js" to the skills array for all employees who already have "JavaScript" as a skill.
+___________________________________________________________________________________
+4. Set Employment Status to False for Employees Older Than 40
+
+db.collectionName.updateMany(
+   { age: { $gt: 40 } },    // Query to match documents where age is greater than 40
+   { $set: { isEmployed: false } }   // Set the isEmployed field to false
+)
+This will mark employees over 40 years old as unemployed by setting isEmployed to false.
+___________________________________________________________________________________
+5. Remove the Backlogs Field from All Documents
+
+db.collectionName.updateMany(
+   { Backlogs: { $exists: true } },  // Query to match documents where Backlogs field exists
+   { $unset: { Backlogs: "" } }      // Remove the Backlogs field
+)
+This removes the Backlogs field from all documents where it is present.
+___________________________________________________________________________________
+6. Update Rating for JavaScript to 4 for All Employees with JavaScript Rating 5
+
+db.collectionName.updateMany(
+   { "Ratindg.JavaScript": 5 },  // Query to match documents where JavaScript rating is 5
+   { $set: { "Ratindg.JavaScript": 4 } }  // Set the JavaScript rating to 4
+)
+This will update the JavaScript rating to 4 for all employees who currently

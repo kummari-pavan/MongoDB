@@ -1,0 +1,48 @@
+//View Databases
+test> show dbs
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+
+test> use admin
+switched to db admin
+
+admin> use PServer
+switched to db PServer
+PServer> show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+
+PServer> show dbs
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+
+PServer> db.createCollection("Demo-1")
+{ ok: 1 }
+
+PServer> show dbs
+PServer   8.00 KiB
+admin    40.00 KiB
+config   48.00 KiB
+local    40.00 KiB
+
+PServer> db.dropDatabase()
+{ ok: 1, dropped: 'PServer' }
+
+PServer> show dbs
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+
+PServer>cls //for clear Screen 
+
+PServer> db.Trainee.insertOne({name:"PAVAN",ID:"BLZ185",Company:"Wipro"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6704bc6510faa37a4ac73bf8')
+}
+
+PServer> db.Trinee.insertMany([{name:"Vijaya",ID:"BLZ181",Company:"Wipro"},{name:"Preetham",ID:"BLZ182",Company:"Wipro"},
+        {name:"Santhosh",ID:"BLZ183",Company:"Wipro"},{name:"Anjali",ID:"BLZ184",Company:"Wipro"}])
+
+PServer> db.Trainee.find()

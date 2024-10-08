@@ -1,0 +1,15 @@
+Show all databases
+------------------
+To see all available databases, in our terminal type show dbs.
+
+>>> show dbs
+
+Change or Create a Database
+----------------------------
+You can change or create a new database by typing use then the name of the database.
+
+>>> use dbname 
+
+Drop a Database:
+---------------
+db.dropDatabase() //for deleting Database

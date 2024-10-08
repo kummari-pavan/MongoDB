@@ -1,0 +1,33 @@
+MongoDB supports a variety of data types, such as:
+
+String: "This is a string"
+Integer: 42
+Boolean: true or false
+Array: [1, 2, 3]
+Object: { "name": "John", "age": 30 }
+Date: new Date()
+ObjectId: Used as the unique identifier for documents.
+
+Example-1
+---------
+db.collection_name.insertOne({
+    name: "Alice",
+    age: 28,
+    isEmployed: true,
+    skills: ["JavaScript", "MongoDB"],
+    joinedDate: new Date()
+})
+
+Example-2
+---------
+db.Trainee.insertOne({
+    name: "Pavan",
+    age: 22,
+    isEmployed: true,
+    Backlogs:null
+    skills: ["JavaScript", "MongoDB"],
+    joinedDate: new Date()
+    Ratindg:{JavaScript:5,MongoDB:5}
+})
+
+

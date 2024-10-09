@@ -1,0 +1,92 @@
+MongoDB aggregation:
+-------------------
+MongoDB aggregation is a powerful framework for data processing and transformation. It allows you to process multiple documents and 
+return computed results. Aggregations in MongoDB are often used to group values, filter data, and perform calculations on data from a 
+collection, similar to SQL’s GROUP BY or HAVING clauses.
+
+The aggregation framework consists of a pipeline of stages that process documents. Each stage transforms the documents and passes the 
+result to the next stage.
+
+Key Concepts in Aggregation:
+----------------------------
+Aggregation Pipeline:
+----------------------
+A series of stages that are applied sequentially to the documents in a collection. Each stage takes the input and applies an operation
+ (like filtering, grouping, sorting) and passes the result to the next stage.
+Example of stages: $match, $group, $project, $sort, $limit.
+
+Stages:
+----------
+Each stage in the pipeline processes the input documents and outputs them for the next stage.
+Example: You can first filter documents ($match), then group them by a field ($group), and finally sort the results ($sort).
+
+
+Example of a Simple Aggregation Pipeline
+_________________________________________
+Let's take one example we have a collection orders and you want to:
+
+1.Filter orders where the total amount is greater than 100 ($match stage).
+2.Group orders by customerName and calculate the total amount spent by each customer ($group stage).
+3.Sort the results by totalAmount in descending order ($sort stage).
+
+db.orders.aggregate([
+   { $match: { orderAmount: { $gt: 100 } } },  // Stage 1: Filter orders
+   { $group: { _id: "$customerName", totalAmount: { $sum: "$orderAmount" } } },  // Stage 2: Group by customerName
+   { $sort: { totalAmount: -1 } }  // Stage 3: Sort by totalAmount in descending order
+])
+
+How the Pipeline Works:
+
+1.Stage 1 ($match): Filters the documents, allowing only orders with an amount greater than 100.
+2.Stage 2 ($group): Groups the remaining documents by customerName and calculates the total amount spent.
+3.Stage 3 ($sort): Sorts the customers based on their total spending, from highest to lowest.
+
+
+
+Common Aggregation Operators:
+
+1.$match:
+--------------
+Filters the documents to pass only those that match the specified condition to the next stage.
+Equivalent to WHERE in SQL.
+
+2.$group:
+--------------
+Groups input documents by the specified _id expression and applies aggregation expressions (e.g., sum, average, count) to compute values for each group.
+Equivalent to GROUP BY in SQL.
+
+3.$project:
+--------------
+Reshapes each document in the stream, allowing you to include, exclude, or add new fields.
+Equivalent to SELECT in SQL.
+
+4.$sort:
+--------------
+Sorts all input documents by the specified field(s).
+Equivalent to ORDER BY in SQL.
+
+5.$limit:
+--------------
+Restricts the number of documents passed to the next stage.
+Equivalent to LIMIT in SQL.
+
+6.$unwind:
+--------------
+Deconstructs an array field from the input documents to output a document for each element of the array.
+
+7.$lookup:
+--------------
+Performs a left outer join to another collection in the same database to filter in data from the joined collection.
+
+8.$sum, $avg, $min, $max, $count:
+--------------------------------
+Aggregation operators used to calculate sum, average, minimum, maximum, and count within the $group stage.
+
+9.$addFields:
+--------------
+Definition: Adds or modifies fields in documents within the aggregation pipeline.
+
+10.$out:
+--------------
+Definition: Writes the result of the aggregation to a new or existing collection.
+
